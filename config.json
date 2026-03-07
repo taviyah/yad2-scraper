@@ -3,8 +3,48 @@
   "chatId": null,
   "projects": [
     {
-      "topic": "",
-      "url": ""
+  "topics": [
+    {
+      "name": "אביאל",
+      "url": "https://www.yad2.co.il/realestate/rent/coastal-north?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=15&city=0679"
+    },
+    {
+      "name": "עמיקם",
+      "url": "https://www.yad2.co.il/realestate/rent/north-and-valleys?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=97&city=0773"
+    },
+    {
+      "name": "עין שמר",
+      "url": "https://www.yad2.co.il/realestate/rent/coastal-north?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=15&city=0139"
+    },
+    {
+       "name": "עין עירון, בנימינה גבעת עדה, בת שלמה, עופר, כרם מהרל",
+       "url": "https://www.yad2.co.il/realestate/rent/coastal-north?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&multiCity=0223%2C9800%2C0033%2C0810%2C0580"
+    },
+    {
+             "name": "פרדס חנה כרכור, זיכרון יעקב, כפר גליקסון,משמרות,אלוני יצחק",
+             "url": "https://www.yad2.co.il/realestate/rent/coastal-north?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&multiCity=7800%2C9300%2C0213%2C0868%2C0310"
+    },
+    {
+               "name": "גן שמואל, גן שומרון, ברקאי,תלמי אלעזר",
+              "url": "https://www.yad2.co.il/realestate/rent/coastal-north?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&multiCity=0617%2C0072%2C0225%2C2003"
+    },
+    {
+          "name": "גבעת נילי",
+      "url": "https://www.yad2.co.il/realestate/rent/north-and-valleys?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=97&city=0360"
+    },
+    {
+                "name": "דרום השרון",
+  "url": "https://www.yad2.co.il/realestate/rent/center-and-sharon?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=81"
+    },
+    {
+                      "name": "חופית, שדה ורבורג, שדי חמד,כפר ויתקין, בית ינאי",
+  "url": "https://www.yad2.co.il/realestate/rent/center-and-sharon?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&multiCity=0284%2C2015%2C0190%2C0115%2C0200"
+    },
+    {
+       "name": "גאולי תימן",
+       "url": "https://www.yad2.co.il/realestate/rent/center-and-sharon?maxPrice=7000&minRooms=3&maxRooms=4.5&minFloor=0&maxFloor=0&property=1%2C3%2C5%2C39%2C11%2C32%2C55&area=70&city=0872"
     }
+      ]
+}
   ]
 }
