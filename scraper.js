@@ -85,35 +85,26 @@ const scrape = async (topic, url) => {
     const chatId = process.env.CHAT_ID || config.chatId;
     const telenode = new Telenode({apiToken})
     try {
-        await telenode.sendTextMessage(`Starting scanning ${topic} on link:\n${url}`, chatId)
         const scrapeImgResults = await scrapeItemsAndExtractImgUrls(url);
         const newItems = await checkIfHasNewItem(scrapeImgResults, topic);
         if (newItems.length > 0) {
-            const newItemsJoined = newItems.join("\n----------\n");
-            const msg = `${newItems.length} new items:\n${newItemsJoined}`
+            const msg = `🏠 ${newItems.length} דירות חדשות ב${topic}!\n${url}`
             await telenode.sendTextMessage(msg, chatId);
-        } else {
-            await telenode.sendTextMessage("No new items were added", chatId);
         }
     } catch (e) {
         let errMsg = e?.message || "";
-        if (errMsg) {
-            errMsg = `Error: ${errMsg}`
-        }
-        await telenode.sendTextMessage(`Scan workflow failed... 😥\n${errMsg}`, chatId)
+        await telenode.sendTextMessage(`Scan failed for ${topic}: ${errMsg}`, chatId)
         throw new Error(e)
     }
 }
 
-const program = async () => {
-    await Promise.all(config.projects.filter(project => {
-        if (project.disabled) {
-            console.log(`Topic "${project.topic}" is disabled. Skipping.`);
-        }
-        return !project.disabled;
-    }).map(async project => {
-        await scrape(project.topic, project.url)
-    }))
-};
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const program = async () => {
+    const projects = config.projects.filter(project => !project.disabled);
+    for (const project of projects) {
+        await scrape(project.name, project.url);
+        await sleep(3000);
+    }
+};
 program();
