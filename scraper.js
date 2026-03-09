@@ -86,21 +86,23 @@ const createPushFlagForWorkflow = () => {
     fs.writeFileSync("push_me", "")
 }
 
-const scrape = async (topic, url) => {
+const scrape = async (topic, url, retries = 3) => {
     const apiToken = process.env.API_TOKEN || config.telegramApiToken;
     const chatId = process.env.CHAT_ID || config.chatId;
-    const telenode = new Telenode({apiToken})
+    const telenode = new Telenode({apiToken});
     try {
         const scrapeImgResults = await scrapeItemsAndExtractImgUrls(url);
         const newItems = await checkIfHasNewItem(scrapeImgResults, topic);
         if (newItems.length > 0) {
-            const msg = `🏠 ${newItems.length} דירות חדשות ב${topic}!\n${url}`
+            const msg = `🏠 ${newItems.length} דירות חדשות ב${topic}!\n${url}`;
             await telenode.sendTextMessage(msg, chatId);
         }
     } catch (e) {
-        let errMsg = e?.message || "";
-        await telenode.sendTextMessage(`Scan failed for ${topic}: ${errMsg}`, chatId)
-        throw new Error(e)
+        if (retries > 0 && e?.message === "Bot detection") {
+            await sleep(5000);
+            return scrape(topic, url, retries - 1);
+        }
+        console.log(`Failed for ${topic}: ${e?.message}`);
     }
 }
 
